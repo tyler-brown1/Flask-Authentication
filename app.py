@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect,url_for, render_template,session,flash,jsonify
+from flask import Flask, request, redirect,url_for, render_template,session,flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from methods import valid_char,sha_hash
@@ -112,4 +112,4 @@ if __name__ == '__main__':
     with app.app_context(): # create database if it does not exist
         db.create_all()
 
-    app.run(debug=True) # run the app
+    app.run(debug=True,port=3000) # run the app
