@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <style>
+        body{
+            background-color: #8bd8e3;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    {% if get_flashed_messages() %}
+    {% for msg in get_flashed_messages() %}
+    <h3>{{msg}}</h3>
+    {% endfor %}
+    {% endif %}
+
+    <h1>Create Account</h1>
+    <form method="POST" action="check_new_account">
+        <h3> What do you want your username to be?</h3>
+        <input type="text" name="username" minlength="4" max="12" required>
+        <h3> What do you want your password to be?</h3>
+        <input type="password" name="password" minlength="5" maxlength="12" required>
+        <input type="submit" value="Create Account">
+    </form>
+</body>
+</html>
