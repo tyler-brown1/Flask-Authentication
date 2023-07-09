@@ -108,6 +108,12 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
+@app.route('/users/<username>')
+def user(username):
+    usr = users.query.filter_by(name=username).first()
+    if usr is None: return "user does not exist"
+    return f"<h3>{str(usr)}</h3>"
+
 if __name__ == '__main__':
     with app.app_context(): # create database if it does not exist
         db.create_all()
